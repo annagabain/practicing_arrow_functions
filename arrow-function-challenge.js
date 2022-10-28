@@ -22,32 +22,23 @@ let students = [
 
 const averagePoints = (arr, subject) => {
     let count = 0
-    let scores = 0
-    for (let student of students) {       
+    let scores = 0    
 
+    for (let student of arr) {   
         let results = student.results
-        if ('english' in results) {
-            //console.log(results)
+        if (subject in results) {
             count = count + 1
-            console.log('count: ' + count)
-
-            let english_score = student['results']['english']
-            console.log(english_score)
-            scores += english_score
-            console.log(scores)
-            let average = scores / count
-            console.log(average)
-
+            let score = student['results'][subject]
+            scores += score
+            var average = scores / count
+            //console.log(average)
+            
         }
-        
-
     }
-
+    return average
 }
 
 
-averagePoints()
-/*
 let averageMarks = averagePoints(students, 'english')
 console.log(averageMarks)
-*/
+
